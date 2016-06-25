@@ -1,7 +1,9 @@
 var app = angular.module('gitHubApp', ['ui.router']);
+var users=[];
 
 app.config(function($stateProvider, $urlRouterProvider) {
-
+    $urlRouterProvider.when('/home', '/');
+    $urlRouterProvider.when('/about/', '/about');
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
@@ -21,23 +23,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
             views:{
                 '': {
                 templateUrl: 'partial-users.html',
-                controller: function($scope, $http,$state) {
-                      $scope.users={};
-                      $http.get("https://api.github.com/users")
-                      .then(function(response) {
-                       $scope.users = response.data;
-                       });
-                     }
+                controller: 'userController'
               },
                 'contact@users': {
                     templateUrl: 'partial-users-detail.html',
-                    controller: function($scope,$http,$stateParams) {
-                       $scope.currentUser={};
-                       $http.get("https://api.github.com/users/"+1)
-                       .then(function(response) {
-                           $scope.currentUser = response.data;
-                       });
-                   }
+                    controller:'userController'
                  },
             }
         })
@@ -47,19 +37,28 @@ app.config(function($stateProvider, $urlRouterProvider) {
             views:{
                   'contact@users': {
                         templateUrl: 'partial-users-detail.html',
-                        controller: function($scope,$http,$stateParams) {
-                           $scope.currentUser={};
-                           $http.get("https://api.github.com/users/"+$stateParams.userId)
-                           .then(function(response) {
-                               $scope.currentUser = response.data;
-                           });
-                       }
+                        controller: function($scope,$http,$stateParams,$state) {
+                            $scope.currentUser={};
+                          $http.get("https://api.github.com/users/"+$stateParams.userId)
+                          .then(function(response) {
+                                $scope.currentUser=response.data;
+                          },function(response){
+                            $state.go('users');
+                          });
+                        }
                 }
             },
 
         });
 });
-
+app.controller('userController',function($scope, $http) {
+      $scope.users=[];
+      $http.get("https://api.github.com/users")
+      .then(function(response) {
+       $scope.users = response.data;
+        $scope.currentUser=$scope.users[0];
+       });
+     });
 
 app.directive('updateTitle', ['$rootScope', '$timeout',
   function($rootScope, $timeout) {
