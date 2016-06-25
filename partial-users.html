@@ -4,6 +4,7 @@
 <ul ng-repeat="user in users">
   <li><a ui-sref-active="active" ui-sref="users.detail({userId: user.login})">{{user.login}}</a></li>
 </ul>
+<a  ng-click="getMoreUsers()" class="button">more</a>
 </div>
 
 <div class="small-8 columns">

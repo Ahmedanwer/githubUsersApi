@@ -33,7 +33,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
         .state('users.detail', {
             url: '/{userId}',
-            data : { pageTitle: 'detail' },
+            data : { pageTitle: 'Details ' },
             views:{
                   'contact@users': {
                         templateUrl: 'partial-users-detail.html',
@@ -53,12 +53,34 @@ app.config(function($stateProvider, $urlRouterProvider) {
 });
 app.controller('userController',function($scope, $http) {
       $scope.users=[];
+      $scope.since={};
+
+      $scope.getMoreUsers=function(){
+          console.log($scope.since);
+        $http.get("https://api.github.com/users?since="+$scope.since)
+        .then(function(response) {
+          console.log(response.data);
+
+         $scope.users= $scope.users.concat(response.data);
+          $scope.since=$scope.users[$scope.users.length-1].id
+         });
+
+      }
+
       $http.get("https://api.github.com/users")
       .then(function(response) {
        $scope.users = response.data;
-        $scope.currentUser=$scope.users[0];
+        $scope.since=$scope.users[$scope.users.length-1].id
+
+          $scope.currentUser=$scope.users[0];
+          $http.get("https://api.github.com/users/"+$scope.users[0].login)
+          .then(function(response) {
+                $scope.currentUser=response.data;
+          });
+
        });
      });
+
 
 app.directive('updateTitle', ['$rootScope', '$timeout',
   function($rootScope, $timeout) {
