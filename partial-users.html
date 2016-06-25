@@ -1,0 +1,16 @@
+<div class="row">
+<div class="small-2 columns">
+
+<ul ng-repeat="user in users">
+  <li><a ui-sref-active="active" ui-sref="users.detail({userId: user.id})">{{user.login}}</a></li>
+</ul>
+</div>
+
+<div class="small-8 columns">
+
+<div ui-view="contact"></div>
+
+
+
+</div>
+</div>

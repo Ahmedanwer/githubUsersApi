@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="gitHubApp">
+<head>
+
+<title update-title></title>
+
+    <link rel="stylesheet" href="foundation.min.css">
+
+
+    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<style>
+.active{
+  font-weight: bold;
+}
+</style>
+
+<body>
+
+
+<ul class="menu">
+  <li><a  ui-sref-active="active" ui-sref="home">Home</a></li>
+  <li><a  ui-sref-active="active" ui-sref="about">About</a></li>
+  <li><a  ui-sref-active="active"  ui-sref="users">Users</a></li>
+</ul>
+
+<div ui-view></div>
+
+
+
+</body>
+</html>
