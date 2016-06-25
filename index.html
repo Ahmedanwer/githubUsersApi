@@ -2,7 +2,7 @@
 <html ng-app="gitHubApp">
 <head>
 
-<title update-title></title>
+<title>{{$state.current.data.pageTitle}} {{$stateParams.userId}}</title>
 
     <link rel="stylesheet" href="foundation.min.css">
 
@@ -19,13 +19,18 @@
 
 <body>
 
-
-<ul class="menu">
-  <li><a  ui-sref-active="active" ui-sref="home">Home</a></li>
-  <li><a  ui-sref-active="active" ui-sref="about">About</a></li>
-  <li><a  ui-sref-active="active"  ui-sref="users">Users</a></li>
-</ul>
-
+<div class="row">
+  <div>
+  <h1 >{{$state.current.data.pageTitle}} {{$stateParams.userId}}</h1>
+  </div>
+  <div>
+      <ul class="menu">
+        <li><a  ui-sref-active="active" ui-sref="home">Home</a></li>
+        <li><a  ui-sref-active="active" ui-sref="about">About</a></li>
+        <li><a  ui-sref-active="active"  ui-sref="users">Users</a></li>
+      </ul>
+  </div>
+</div>
 <div ui-view></div>
 
 
