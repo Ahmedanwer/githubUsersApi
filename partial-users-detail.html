@@ -10,18 +10,18 @@
 </div>
 </div>
 
-<h1>
+<h1 ng-show="currentUser.name">
   {{currentUser.name}}
 </h1>
 
 <div>
-<p>
+<p ng-show='currentUser.email'>
   <b>Email:</b>
   {{currentUser.email}}
 </p>
-</p>
+<p ng-show='currentUser.created_at'>
   <b>Created at:</b>
-    {{currentUser.created_at}}
+    {{currentUser.created_at|date:'dd-MMM-yyyy'}}
 </p>
 </div>
 
