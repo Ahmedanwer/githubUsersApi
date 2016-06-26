@@ -1,0 +1,113 @@
+/************** base rules **************/
+body{
+  background-color: #fafafa;
+}
+
+.active{
+  font-weight: bold;
+}
+
+/************** layouts **************/
+
+
+
+/************* nav bar **************/
+.top-bar {
+  padding: 0px;
+  height: 55px;
+}
+.top-bar, .top-bar ul{
+  background-color: #0a0a0a;
+}
+
+.top-bar .menu>li>a{
+ padding: 1.2rem 1.7rem;
+   color: #ddd;
+}
+
+.top-bar .menu>li>a:hover,
+.top-bar .menu>li>a.active{
+background-color: #222;
+color:#FFF;
+}
+.octicon-mark-github{
+fill: #ddd;
+}
+.top-bar .menu-text{
+color: #ddd;
+font-size: 18px;
+text-transform: capitalize;
+}
+
+
+/************* users ****************/
+
+.users-side-bar{
+max-height: calc(100vh - 55px);
+overflow-y: scroll;
+}
+.users-side-bar ul {
+list-style-type:none;
+margin: 0px;
+}
+
+.users-side-bar li a{
+    color: black;
+    display: block;
+  background-color: #f1f1f1;
+  padding: 6px 17px;
+  border: 1px #eee solid;
+}
+.users-side-bar li a:hover,
+.users-side-bar li a.active{
+background-color: #222;
+color: #fff
+}
+/********** user-details ************/
+.user-details{
+  text-align: center;
+  padding: 20px;
+}
+
+.user-details .userID{
+  position: relative;
+  top: -52px;
+  right: 77px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  padding-top: 20px;
+  color: #fff;
+  vertical-align: middle;
+  font-weight: bold;
+  display: inline-block;
+  background-color: #111;
+  border: 3px solid #fff;
+  margin: -50px;
+}
+.user-details .userID span{
+  font-size: 30px;
+  overflow: hidden;
+}
+.user-details .userID div{
+  width: 100px;
+  height: 50px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.round {
+
+border-radius: 50%;
+overflow: hidden;
+width: 400px;
+height: 400px;
+display: inline-block;
+}
+.round img {
+display: block;
+/* Stretch
+height: 100%;
+width: 100%; */
+min-width: 100%;
+min-height: 100%;
+}

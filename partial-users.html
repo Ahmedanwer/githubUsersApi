@@ -1,13 +1,14 @@
 <div class="row">
-<div class="small-2 columns">
-
-<ul ng-repeat="user in users">
-  <li><a ui-sref-active="active" ui-sref="users.detail({userId: user.login})">{{user.login}}</a></li>
-</ul>
-<a  ng-click="getMoreUsers()" class="button">more</a>
+<div class="small-3 columns">
+  <div class=" users-side-bar">
+    <ul >
+      <li ng-repeat="user in users"><a ui-sref-active="active" ui-sref="users.detail({userId: user.login})">{{user.login}}</a></li>
+    </ul>
+    <a  ng-click="getMoreUsers()" class="button expanded">more</a>
+  </div>
 </div>
 
-<div class="small-8 columns">
+<div class="small-9 columns">
 
 <div ui-view="contact" autoscroll='false'></div>
 

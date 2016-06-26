@@ -1,21 +1,30 @@
-<div>
-  {{currentUser.login}}
+<div class="user-details">
+  <div class="round">
+  <img  ng-src="{{currentUser.avatar_url}}" />
 </div>
+<div class="userID">
 <div>
+<span>
   {{currentUser.id}}
+</span>
 </div>
-<div>
-  <img ng-src="{{currentUser.avatar_url}}" />
 </div>
 
-<div>
+<h1>
   {{currentUser.name}}
-</div>
+</h1>
 
 <div>
+<p>
+  <b>Email:</b>
   {{currentUser.email}}
+</p>
+</p>
+  <b>Created at:</b>
+    {{currentUser.created_at}}
+</p>
 </div>
 
-<div>
-    {{currentUser.created_at}}
+
+
 </div>
